@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌿 Catatan Keuangan Alam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style></style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🌿 Catatan Keuangan 🌿</h1>
+            <p class="subtitle">Kelola keuangan kamu</p>
+        </header>
+
+        <div class="main-grid">
+            <!-- Form Input -->
+            <div class="card">
+                <h2 class="card-title">🌱 Tambah Transaksi</h2>
+
+                <form id="transactionForm">
+                    <div class="form-group">
+                        <label for="date">📅 Tanggal</label>
+                        <input type="date" id="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">📝 Keterangan</label>
+                        <input type="text" id="description" placeholder="Masukkan keterangan..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="amount">💰 Jumlah (Rp)</label>
+                        <input type="number" id="amount" placeholder="0" min="0" step="1000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>🌸 Tipe Transaksi</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="income" name="type" value="Pemasukan" checked>
+                                <label for="income" class="radio-label">🌿 Pemasukan</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="expense" name="type" value="Pengeluaran">
+                                <label for="expense" class="radio-label">🍂 Pengeluaran</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">➕ Tambah Transaksi</button>
+                </form>
+            </div>
+
+            <!-- Summary & Table -->
+            <div>
+                <!-- Summary Cards -->
+                <div class="card" style="margin-bottom: 30px;">
+                    <h2 class="card-title">🌻 Ringkasan Keuangan</h2>
+                    <div class="summary-grid">
+                        <div class="summary-card income">
+                            <div class="summary-icon">🌿</div>
+                            <div class="summary-label">Total Pemasukan</div>
+                            <div class="summary-value" id="totalIncome">Rp 0</div>
+                        </div>
+                        <div class="summary-card expense">
+                            <div class="summary-icon">🍂</div>
+                            <div class="summary-label">Total Pengeluaran</div>
+                            <div class="summary-value" id="totalExpense">Rp 0</div>
+                        </div>
+                        <div class="summary-card balance">
+                            <div class="summary-icon">🌸</div>
+                            <div class="summary-label">Saldo</div>
+                            <div class="summary-value" id="balance">Rp 0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transaction Table -->
+                <div class="card">
+                    <h2 class="card-title">🌳 Daftar Transaksi</h2>
+                    <div style="overflow-x: auto;">
+                        <table id="transactionTable">
+                            <thead>
+                                <tr>
+                                    <th>📅 Tanggal</th>
+                                    <th>📝 Keterangan</th>
+                                    <th>💰 Jumlah</th>
+                                    <th>🌸 Tipe</th>
+                                    <th>🗑️ Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transactionBody">
+                                <tr>
+                                    <td colspan="5" class="empty-state">
+                                        <div class="empty-state-icon">🌾</div>
+                                        <div>Belum ada transaksi. Mulai tambahkan transaksi pertama Anda!</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+
+</html>
